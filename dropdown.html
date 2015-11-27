@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="src/jquery.min.js"></script>
+    <script type="text/javascript" src="src/base.js"></script>
+    <script type="text/javascript" src="src/dropdown.js"></script>
+    <link rel="stylesheet" href="src/dropdown.css"/>
+</head>
+<style>
+
+    .drop1 {
+        width: 200px;
+        height: 40px;
+        background-color: #cccccc;
+        display: block;
+    }
+
+    .drop2, .drop3 {
+        height: 40px;
+        overflow: hidden;
+    }
+    .drop4{
+        width:200px;
+        height: 40px;
+        background-color: red;
+        display: block;
+    }
+</style>
+<body>
+<div class="abc">
+    <span class="drop1">abc</span>
+    <br/>123123<br/>
+    <span class="drop1" style="position: relative;top:200px;">abc</span>
+    <input class="drop2" type=""/>
+    <br/>123123<br/>
+    <input class="drop3" type=""/>
+
+    <br/>123123<br/>
+    <span class="drop4">abc</span>
+</div>
+<script type="text/javascript">
+
+    var dropdown1 = $.Dropdown.getExample({
+        el: '.drop1',
+        $tpl: '',
+        parent: '.abc', /*相对于谁来绝对定位*/
+        css: {
+            width: 300
+        },
+        leftOffset: 0,
+        topOffset: 0,
+        tpl: '<%for(var i=0;i<this.lists.length;i++){ list=this.lists[i];%><li data-value="<%list.value%>" ><%list.name%></li><%}%>',
+        lists: [
+            {
+                name: '1会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '2会议创建时间',
+                value: 'ctime'
+            },
+            {
+                name: '3会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '4会议创建时间',
+                value: 'ctime'
+            },
+            {
+                name: '5会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '6会议创建时间',
+                value: 'ctime'
+            }
+        ],
+        tplSpan: '<span class="op5"><%=name%></span>',
+        selectCallback: function ($obj) {
+            console.log($obj[0]);
+        }
+
+    });
+
+    var dropdown1 = $.InputDropDown.getExample({
+        el: '.drop2',
+        $tpl: '',
+        parent: '.abc',
+        css: {
+            width: 300
+        },
+        leftOffset: 0,
+        topOffset: 0,
+        tpl: '<%for(var i=0;i<this.lists.length;i++){ list=this.lists[i];%><li data-value="<%list.value%>" ><%list.name%></li><%}%>',
+        lists: [
+            {
+                name: '1会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '2会议创建时间',
+                value: 'ctime'
+            },
+            {
+                name: '3会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '4会议创建时间',
+                value: 'ctime'
+            },
+            {
+                name: '5会议开始时间',
+                value: 'stime'
+            },
+            {
+                name: '6会议创建时间',
+                value: 'ctime'
+            }
+        ],
+        tplSpan: '<span class="op5"><%=name%></span>',
+        delCallback: function ($obj) {
+            console.log('del', $obj);
+        },
+        enterCallback: function ($obj) {
+            console.log('enter', $obj);
+        },
+        selectCallback: function ($obj) {
+            console.log('select', $obj);
+        }
+
+    });
+    var dropdown4 = $.RightDropDown.getExample({
+        el: '.drop4',
+        $tpl: '',
+        parent: '.abc',
+        css: {
+            width: 300
+        },
+        selected: 1,
+        leftOffset: 0,
+        topOffset: 0,
+        tpl: '<%for(var i=0;i<this.lists.length;i++){ list=this.lists[i];%><li data-value="<%list.value%>" ><%list.name%></li><%}%>',
+        lists: [
+            {
+                name: '1',
+                value: '1'
+            },
+            {
+                name: '2',
+                value: '2'
+            },
+            {
+                name: '3',
+                value: '3'
+            },
+            {
+                name: '4',
+                value: '4'
+            }
+        ],
+        tplSpan: '<span class="op5"><%=name%></span>',
+        delCallback: function ($obj) {
+            console.log('del', $obj);
+        },
+        enterCallback: function ($obj) {
+            console.log('enter', $obj);
+        },
+        selectCallback: function ($obj) {
+            console.log('select', $obj);
+        }
+
+    });
+
+</script>
+</body>
+</html>
